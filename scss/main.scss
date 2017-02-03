@@ -1,0 +1,115 @@
+// include foundation
+
+@import "../node_modules/foundation-sites/scss/foundation";
+
+@include foundation-global-styles;
+@include foundation-grid;
+
+html {
+  background-image: url('http://emmaolliff.com/wp-content/uploads/2015/03/Lemon-Slices.jpg');
+}
+
+body {
+  background-color: #FFFDD0;
+  border: 2px solid #2E8B57;
+  padding: 20px;
+  margin: 50px;
+  font-family: 'Shadows Into Light Two', cursive;
+  font-size: 19px;
+
+
+  h1 {
+    text-align: center;
+    color: #2E8B57;
+  }
+
+  .start {
+    @include grid-row();
+    border: 2px solid #FFFDD0;
+    background-color: #2E8B57;
+    input {
+      @include grid-column(9);
+      padding: 15px;
+      margin: 15px;
+      font-size: 20px;
+      border: 2px solid #2E8B57;
+      background-color: white;
+      font-family: 'Shadows Into Light Two', cursive;
+
+    }
+    #startbtn {
+      @include grid-column(2);
+      padding: 15px;
+      margin: 15px 15px 15px 0;
+      font-size: 20px;
+      border: 6px solid #FFFDD0;
+      background-color: transparent;
+      color: #FFFDD0;
+      font-family: 'Shadows Into Light Two', cursive;
+    }
+    #startbtn:hover {
+      background-color: white;
+      color: #2E8B57;
+    }
+  }
+  .game {
+    margin: 50px;
+    padding: 50px;
+    border: 1px dashed yellow;
+  }
+  .scores {
+    margin: 50px;
+    padding: 50px;
+    border: 1px dotted black;
+  }
+  .winning {
+    padding: 50px;
+    border: 1px dotted yellow;
+    list-style: none;
+  }
+  .standmgr {
+    @include grid-row();
+    .game {
+      @include grid-column(3);
+      text-align: center;
+      margin: auto;
+    }
+    .inventory {
+      @include grid-column(3);
+      text-align: center;
+      margin: auto;
+      padding: 50px;
+    }
+    .options {
+      @include grid-column(3);
+      text-align: left;
+      margin-top: auto;
+      padding: 50px;
+
+      .break {
+        border-top: 2px solid white;
+      }
+      button, input{
+        text-align: center;
+        font-size: 20px;
+        padding: 5px;
+        margin: 5px;
+        border: 2px solid #2E8B57;
+        border-radius: 10px;
+        color: #2E8B57;
+        background-color: white;
+        font-family: 'Shadows Into Light Two', cursive;
+      }
+      button:hover {
+        background-color: beige;
+      }
+    }
+    .weather {
+      @include grid-column(12);
+      text-align: center;
+      margin: auto;
+      padding: 50px;
+    }
+  }
+
+}

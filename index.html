@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lemonade Shack</title>
+    <!-- add css file -->
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two" rel="stylesheet">
+    <script src="https://use.fontawesome.com/7fb1b7bdac.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+
+  </head>
+  <body ng-app="LemonadeShackApp">
+    <h1>
+      <i class="fa fa-lemon-o" aria-hidden="true"></i>
+      Lemonade Shack
+      <i class="fa fa-lemon-o" aria-hidden="true"></i>
+    </h1>
+
+<!-- grrr -->
+  <!-- <nav>
+    <ul>
+      <li><a sref="start-game">Start</a></li>
+      <li><a sref="stand-manager">Play</a></li>
+      <li><a sref="scores">Scores</a></li>
+    </ul>
+
+  </nav>
+
+  <create-stand>hello</create-stand>
+  <stand-manager></stand-manager>
+  <show-scores><show-scores> -->
+
+<!-- FIRST VIEW -->
+    <section ng-controller = "CreateStandController"> -->
+      <div class="start">
+        <input type="text" ng-model="nameStand" placeholder="Name your business">
+        <button id="startbtn" type="button" ng-click="postName(nameStand)">Start Playing</button>
+      </div>
+    </section>
+
+
+<!-- SECOND VIEW -->
+    <section class="standmgr" ng-controller = "StandManagerController">
+      <div class="weather">
+        <h1>
+          <i class="fa fa-sun-o" aria-hidden="true"></i>
+          Weather
+          <i class="fa fa-mixcloud" aria-hidden="true"></i>
+        </h1>
+        <h3> {{weather.condition }} </h3>
+        <h3> {{weather.temperature}} F </h3>
+      </div>
+      <div class="game">
+        <h1>Game Stats:</h1>
+          <h4>Started on Day: {{getStats.started_on}}</h4>
+          <h5>Today is day: {{getStats.day}}</h5>
+          <h4>Price per cup: {{getStats.business.price }}</h4>
+          <h4>Balance in funds: {{getStats.business.balance }}</h4>
+          <p>Total Cups Sold: {{getStats.business.total_cups_sold}}</p>
+          <p>Total Visitors: {{
+            getStats.business.total_visitors}}</p>
+    </div>
+    <div class="inventory">
+      <h1>Inventory:</h1>
+      <p> Lemons:</p>
+      <p> Sugar: </p>
+      <p> Ice: </p>
+      <p> Cups: </p>
+    </div>
+    <div class="options">
+      <h1>Options:</h1>
+      <input type="text" ng-model="item" placeholder="Inventory Item">
+      <input type="number" ng-model="quantity" placeholder="Quantity">
+      <button type="button" ng-click="buyit(item, quantity)">Buy</button>
+      <br>
+      <br>
+      <input type="number" ng-model="price" placeholder="Enter Cup Price">
+      <button type="button" ng-click="setPrice(price)">Set Price</button>
+
+    </div>
+    </section>
+
+<!-- THIRD VIEW -->
+  <section ng-controller = "HighscoresController"> -->
+    <div class="scores">
+      <h1>High Scores</h1>
+      <ul>
+        <li class="winning" ng-repeat="each in scores">
+          <p>Player balance: {{ each.business.balance }}</p>
+          <p>Total Cups Sold: {{ each.business.total_cups_sold}}</p>
+          <p>Total Visitors: {{ each.business.total_visitors}}</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+
+
+
+    <!-- add js file -->
+    <script src="https://npmcdn.com/angular-ui-router@1.0.0-beta.3/release/angular-ui-router.min.js"></script>
+    <script src="app.js" type="text/javascript">
+    </script>
+  </body>
+</html>

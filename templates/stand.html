@@ -1,0 +1,37 @@
+<div class="weather">
+  <h1>
+    <i class="fa fa-sun-o" aria-hidden="true"></i>
+    Weather
+    <i class="fa fa-mixcloud" aria-hidden="true"></i>
+  </h1>
+  <h3> {{weather.condition }} </h3>
+  <h3> {{weather.temperature}} F </h3>
+</div>
+<div class="game">
+  <h1>Game Stats:</h1>
+    <h4>Started on Day: {{getStats.started_on}}</h4>
+    <h5>Today is day: {{getStats.day}}</h5>
+    <h4>Price per cup: {{getStats.business.price }}</h4>
+    <h4>Balance in funds: {{getStats.business.balance }}</h4>
+    <p>Total Cups Sold: {{getStats.business.total_cups_sold}}</p>
+    <p>Total Visitors: {{
+      getStats.business.total_visitors}}</p>
+</div>
+<div class="inventory">
+  <h1>Inventory:</h1>
+  <p> Lemons:</p>
+  <p> Sugar: </p>
+  <p> Ice: </p>
+  <p> Cups: </p>
+</div>
+<div class="options">
+  <h1>Options:</h1>
+  <input type="text" ng-model="item" placeholder="Inventory Item">
+  <input type="number" ng-model="quantity" placeholder="Quantity">
+  <button type="button" ng-click="buyit(item, quantity)">Buy</button>
+  <br>
+  <br>
+  <input type="number" ng-model="price" placeholder="Enter Cup Price">
+  <button type="button" ng-click="setPrice(price)">Set Price</button>
+
+</div>
