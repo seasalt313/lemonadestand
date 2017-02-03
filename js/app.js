@@ -23,40 +23,40 @@ for (let i = 0; i < services.length; i++) {
   app.factory(services[i].name, services[i].func)
 };
 
-// app.config(function ($stateProvider) {
-//     // $stateProvider is the object we add routes ('states') to.
-//     $stateProvider.state({
-//         name: 'start-game',
-//         url: '/home',
-//         component: 'createStand',
-//     });
-//
-//     $stateProvider.state({
-//         name: 'stand-manager',
-//         url: '/stand',
-//         component: 'standManager',
-//     });
-//
-//     $stateProvider.state({
-//         name: 'scores',
-//         url: '/scores',
-//         component: 'showScores',
-//     });
-//
-// });
-//
-// /* Defining a component */
-// app.component('createStand', {
-//     controller: 'CreateStandController',
-//     templateUrl: 'templates/create.html',
-// });
-//
-// app.component('standManager', {
-//     controller: 'StandManagerController',
-//     templateUrl: 'templates/stand.html',
-// });
-//
-// app.component('showScores', {
-//     controller: 'HighscoresController',
-//     templateUrl: 'templates/scores.html',
-// });
+app.config(function ($stateProvider) {
+    // $stateProvider is the object we add routes ('states') to.
+    $stateProvider.state({
+        name: 'start-game',
+        url: '/home',
+        component: 'createStand',
+    });
+
+    $stateProvider.state({
+        name: 'stand-manager',
+        url: '/stand',
+        component: 'standManager',
+    });
+
+    $stateProvider.state({
+        name: 'scores',
+        url: '/scores',
+        component: 'showScores',
+    });
+
+});
+
+/* Defining a component */
+app.component('createStand', {
+    controller: 'CreateStandController',
+    templateUrl: 'templates/create.html',
+});
+
+app.component('standManager', {
+    controller: 'StandManagerController',
+    templateUrl: 'templates/stand.html',
+});
+
+app.component('showScores', {
+    controller: 'HighscoresController',
+    templateUrl: 'templates/scores.html',
+});

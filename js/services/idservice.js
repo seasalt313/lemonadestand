@@ -15,15 +15,16 @@ module.exports = {
           console.log(response.data);
           standId = response.data.stand_id;
           console.log(standId);
-        });
+          // getStand(standId);
+        })
 
         console.log("posted");
         return standId;
       },
 
 
-      getStand: function(id){
-        let stand = $http.get('https://blooming-hamlet-70507.herokuapp.com/stand' + standId).then(function (response) {
+      getStand: function(){
+        let stand = $http.get('https://blooming-hamlet-70507.herokuapp.com/stand/' + standId).then(function (response) {
           const incoming = response.data;
           console.log(incoming);
           angular.copy(response.data, standInfo);

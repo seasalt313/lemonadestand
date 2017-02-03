@@ -24,43 +24,43 @@ for (let i = 0; i < services.length; i++) {
   app.factory(services[i].name, services[i].func)
 };
 
-// app.config(function ($stateProvider) {
-//     // $stateProvider is the object we add routes ('states') to.
-//     $stateProvider.state({
-//         name: 'start-game',
-//         url: '/home',
-//         component: 'createStand',
-//     });
-//
-//     $stateProvider.state({
-//         name: 'stand-manager',
-//         url: '/stand',
-//         component: 'standManager',
-//     });
-//
-//     $stateProvider.state({
-//         name: 'scores',
-//         url: '/scores',
-//         component: 'showScores',
-//     });
-//
-// });
-//
-// /* Defining a component */
-// app.component('createStand', {
-//     controller: 'CreateStandController',
-//     templateUrl: 'templates/create.html',
-// });
-//
-// app.component('standManager', {
-//     controller: 'StandManagerController',
-//     templateUrl: 'templates/stand.html',
-// });
-//
-// app.component('showScores', {
-//     controller: 'HighscoresController',
-//     templateUrl: 'templates/scores.html',
-// });
+app.config(function ($stateProvider) {
+    // $stateProvider is the object we add routes ('states') to.
+    $stateProvider.state({
+        name: 'start-game',
+        url: '/home',
+        component: 'createStand',
+    });
+
+    $stateProvider.state({
+        name: 'stand-manager',
+        url: '/stand',
+        component: 'standManager',
+    });
+
+    $stateProvider.state({
+        name: 'scores',
+        url: '/scores',
+        component: 'showScores',
+    });
+
+});
+
+/* Defining a component */
+app.component('createStand', {
+    controller: 'CreateStandController',
+    templateUrl: 'templates/create.html',
+});
+
+app.component('standManager', {
+    controller: 'StandManagerController',
+    templateUrl: 'templates/stand.html',
+});
+
+app.component('showScores', {
+    controller: 'HighscoresController',
+    templateUrl: 'templates/scores.html',
+});
 
 },{"./controllers/createstand":2,"./controllers/highscores":3,"./controllers/standmgr":4,"./services/highscoresservice":5,"./services/idservice":6}],2:[function(require,module,exports){
 module.exports = {
@@ -134,16 +134,16 @@ module.exports = {
           console.log(response.data);
           standId = response.data.stand_id;
           console.log(standId);
-        });
+          // getStand(standId);
+        })
 
         console.log("posted");
-        getStand(standId)
         return standId;
       },
 
 
-      getStand: function(id){
-        let stand = $http.get('https://blooming-hamlet-70507.herokuapp.com/stand' + standId).then(function (response) {
+      getStand: function(){
+        let stand = $http.get('https://blooming-hamlet-70507.herokuapp.com/stand/' + standId).then(function (response) {
           const incoming = response.data;
           console.log(incoming);
           angular.copy(response.data, standInfo);
